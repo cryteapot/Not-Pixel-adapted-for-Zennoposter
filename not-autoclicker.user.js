@@ -172,8 +172,8 @@ startScript();
 const GAME_SETTINGS = {
   minDelay: 2000, // 2 секунды
   maxDelay: 4000, // 4 секунды
-  minPauseDuration: 60000, // 1 минута
-  maxPauseDuration: 180000, // 3 минуты
+  minPauseDuration: 5000, // 5 секунд
+  maxPauseDuration: 10000, // 10 секунд
   pauseUntil: null, // По умолчанию пауза не установлена
   autoClaimEnabled: true, // По умолчанию автозабор награды выключен
   autoClaimMinDelay: 10000, // 10 секунд
