@@ -170,15 +170,15 @@ function startScript() {
 startScript();
 
 const GAME_SETTINGS = {
-  minDelay: 1000, // 1 секунда
-  maxDelay: 2000, // 2 секунды
+  minDelay: 2000, // 2 секунды
+  maxDelay: 4000, // 4 секунды
   minPauseDuration: 5000, // 5 секунд
   maxPauseDuration: 30000, // 30 секунд
   pauseUntil: null, // По умолчанию пауза не установлена
   autoClaimEnabled: true, // По умолчанию автозабор награды включен
   autoClaimMinDelay: 20000, // 10 секунд
   autoClaimMaxDelay: 40000, // 20 секунд
-  autoChangeColorEnabled: false, // По умолчанию автосмена цвета выключена
+  autoChangeColorEnabled: true, // По умолчанию автосмена цвета выключена
   autoChangeColorMinDelay: 10000, // 10 секунд
   autoChangeColorMaxDelay: 60000 // 60 секунд
 };
