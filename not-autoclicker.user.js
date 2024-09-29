@@ -49,7 +49,7 @@ function triggerEvents(element) {
   events.forEach((event, index) => {
       setTimeout(() => element.dispatchEvent(event), index * 100);
   });
-} 
+}
 
 // Открытие окна рисования
 function openPaintWindow() {
@@ -75,7 +75,7 @@ function randomClick() {
       setTimeout(randomClick, 1000); // Проверка паузы
       return;
   }
-  
+
   const paintButton = document.evaluate('//*[@id="root"]/div/div[5]/div/button', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
   if (paintButton) {
     const buttonText = paintButton.querySelector('span[class^="_button_text_"]').textContent;
@@ -133,15 +133,15 @@ function clickOkayPromiseButton() {
   function tryClickOkayPromiseButton() {
       const okayPromiseButton = document.querySelector('button._button_1boq4_54');
       const letsGoButton = document.querySelector('button._button_1drph_81');
-      
+
       if (okayPromiseButton && okayPromiseButton.textContent.includes('Okay, promise')) {
           triggerEvents(okayPromiseButton);
       }
-      
+
       if (letsGoButton && letsGoButton.textContent.includes('Let’s Gooooooo!')) {
           triggerEvents(letsGoButton);
       }
-      
+
       setTimeout(tryClickOkayPromiseButton, 3000);
   }
 
@@ -172,15 +172,15 @@ startScript();
 const GAME_SETTINGS = {
   minDelay: 1000, // 1 секунда
   maxDelay: 2000, // 2 секунды
-  minPauseDuration: 60000, // 1 минута
-  maxPauseDuration: 180000, // 3 минуты
+  minPauseDuration: 5000, // 5 секунд
+  maxPauseDuration: 30000, // 30 секунд
   pauseUntil: null, // По умолчанию пауза не установлена
-  autoClaimEnabled: false, // По умолчанию автозабор награды выключен
-  autoClaimMinDelay: 120000, // 2 минуты
-  autoClaimMaxDelay: 600000, // 10 минут
+  autoClaimEnabled: true, // По умолчанию автозабор награды включен
+  autoClaimMinDelay: 20000, // 10 секунд
+  autoClaimMaxDelay: 40000, // 20 секунд
   autoChangeColorEnabled: false, // По умолчанию автосмена цвета выключена
-  autoChangeColorMinDelay: 120000, // 2 минуты
-  autoChangeColorMaxDelay: 600000 // 10 минут
+  autoChangeColorMinDelay: 10000, // 10 секунд
+  autoChangeColorMaxDelay: 60000 // 60 секунд
 };
 
 // Автозабор награды
@@ -750,7 +750,7 @@ function createCheckboxSetting(label, id, tooltipText) {
   input.addEventListener('change', (e) => {
       GAME_SETTINGS[id] = e.target.checked;
       saveSettings();
-  
+
       if (id === 'autoChangeColorEnabled' && GAME_SETTINGS.autoChangeColorEnabled) {
           console.log('Автосмена цвета включена!');
           changeColor(); // Запуск смены цвета
@@ -792,7 +792,7 @@ let noEnergyTimeout = null;
 function toggleAutoclicker() {
   isAutoclickerPaused = !isAutoclickerPaused;
   updatePauseResumeButton();
-  
+
   if (!isAutoclickerPaused) {
       setTimeout(randomClick, getRandomDelay(GAME_SETTINGS.minDelay, GAME_SETTINGS.maxDelay));
   }
@@ -896,4 +896,4 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initializeScript);
 } else {
   initializeScript();
-}
+}​
